@@ -1,0 +1,22 @@
+
+
+button {
+    float: right;
+    border: none;
+    margin-bottom: 2rem;
+    
+}
+button a {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+h2{
+    text-align: center;
+    padding-top: 1.5rem;
+   color: green;
+
+}
+.table{
+    margin-top: 3rem;
+}

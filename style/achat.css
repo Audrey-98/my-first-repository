@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#produits ul,
+#panier ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nom-produit {
+  font-weight: bold;
+}
+
+.prix-produit {
+  margin-right: 10px;
+}
+
+.btn-achat {
+  margin-left: 10px;
+}
+
+#panier {
+  margin-top: 20px;
+}
+
+#btn-vider-panier {
+  margin-top: 10px;
+}
+
+#total-panier {
+  font-weight: bold;
+  margin-top: 10px;
+}
