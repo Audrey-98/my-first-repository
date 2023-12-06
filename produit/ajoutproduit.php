@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +11,10 @@
     <title>Ajouter un Produit</title>
 </head>
 <body >
+<?php
+ include 'header.php';
+ ?>
+
    
     <div class="container">
         <div class="title">AJOUTER UN PRODUIT</div>

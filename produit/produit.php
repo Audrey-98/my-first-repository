@@ -15,7 +15,7 @@
 <body>
     <h2 class="text-info"> <U>NOS PRODUITS</U></h2>
 
-    <button class="bg-warning  " type="submit"><a href="ajoutproduit.html"><i class="fas fa-plus-circle"></i> Ajouter un prodit</button></a>
+    <button class="bg-warning  " type="submit"><a href="ajoutproduit.php"><i class="fas fa-plus-circle"></i> Ajouter un prodit</button></a>
 
     <table class="table  table-bordered">
         <thead>
