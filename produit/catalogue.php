@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    
+<?php include_once ("../dossier_inclusion/header.php");?> 
 </body>
 </html>

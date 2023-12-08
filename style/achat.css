@@ -1,39 +1,49 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
+<style>
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-h1 {
-  text-align: center;
-}
+        h1 {
+            text-align: center;
+        }
 
-#produits ul,
-#panier ul {
-  list-style-type: none;
-  padding: 0;
-}
+        form {
+            margin: 20px auto;
+            width: 300px;
+        }
 
-.nom-produit {
-  font-weight: bold;
-}
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
 
-.prix-produit {
-  margin-right: 10px;
-}
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 5px;
+        }
 
-.btn-achat {
-  margin-left: 10px;
-}
+        #produits {
+            margin-top: 20px;
+        }
 
-#panier {
-  margin-top: 20px;
-}
+        #produits input[type="text"],
+        #produits input[type="number"] {
+            margin-bottom: 10px;
+        }
 
-#btn-vider-panier {
-  margin-top: 10px;
-}
+        #calculer {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
 
-#total-panier {
-  font-weight: bold;
-  margin-top: 10px;
-}
+        #montant-final {
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>

@@ -15,7 +15,7 @@
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  
+ 
   <title>page d'acccueil</title>
 </head>
 
@@ -29,15 +29,17 @@
     <nav class="nav ">
       <div> <a href="#" class="nav_logo"> <span>
             <img src="logo-yata-experts_blanc.png" height="40" alt="YATA-EXPERTS "></span>
-          <div class="nav_list"> <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon me-3'></i>
+          <div class="nav_list"> <a href="menu.php" class="nav_link active"> <i class='bx bx-grid-alt nav_icon me-3'></i>
               <span class="nav_name">tableau de bord</span> </a>
 
-            <a href="/produit/produit.php" class="nav_link">
-              <i class='fa fa-shopping-basket me-3 text-info'></i> <span class="nav_name">Catalogue</span> </a>
+            <a href="../produit/produit.php" class="nav_link">
+              <i class='fa fa-shopping-basket me-3 text-info'></i> <span class="nav_name">Catalogue</span> 
+             
 
-            <a href="#" class="nav_link"> <i class="fa fa-database me-3 text-info"></i> <span class="nav_name">Gestion
-                de stock</span> </a>
-
+            <a href="../gestion_stock/vent.php" class="nav_link"> <i class="fa fa-database me-3 text-info"></i> <span class="nav_name">Gestion
+                de stock</span> 
+                       </a>
+         
             <a href="#" class="nav_link"> <i class="fa fa-archive me-3 text-info"></i> <span
                 class="nav_name">Inventaire</span> </a>
 

@@ -11,11 +11,7 @@
     <title>Ajouter un Produit</title>
 </head>
 <body >
-<?php
- include 'header.php';
- ?>
-
-   
+   <?php include_once ("../dossier_inclusion/header.php");?>
     <div class="container">
         <div class="title">AJOUTER UN PRODUIT</div>
         <form action="#">

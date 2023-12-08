@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php include_once ("../dossier_inclusion/header.php");?>
   <title>Gestion de stock</title>
   <!-- Inclure la bibliothèque Font Awesome -->
   <link rel="stylesheet" type="text/css" href="../gestion_stock/gestion_stock.css">
