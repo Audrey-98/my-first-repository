@@ -13,7 +13,7 @@
 <body >
    <?php include_once ("../dossier_inclusion/header.php");?>
     <div class="container">
-        <div class="title">AJOUTER UN PRODUIT</div>
+        <div class="title">informations sur le produit</div>
         <form action="#">
             <div class="user-details">
                 <div class="input-box">

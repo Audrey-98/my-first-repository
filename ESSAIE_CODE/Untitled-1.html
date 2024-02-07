@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Achat</title>
+  <link rel="stylesheet" type="text/css" href="../style/achat.css">
+</head>
+<body>
+  <h1>Achat</h1>
+
+  <div id="produits">
+    <h2>Liste des produits</h2>
+    <ul>
+      <li>
+        <span class="nom-produit">Produit 1</span>
+       <input>
+        <button class="btn-achat" onclick="ajouterAuPanier('Produit 1', 10)">Ajouter au panier</button>
+      </li>
+      <li>
+        <span class="nom-produit">Produit 2</span>
+        <span class="prix-produit">15 Fcfa</span>
+        <button class="btn-achat" onclick="ajouterAuPanier('Produit 2', 15)">Ajouter au panier</button>
+      </li>
+      <li>
+        <span class="nom-produit">Produit 3</span>
+        <span class="prix-produit">20 Fcfa</span>
+        <button class="btn-achat" onclick="ajouterAuPanier('Produit 3', 20)">Ajouter au panier</button>
+      </li>
+    </ul>
+  </div>
+
+  <div id="panier">
+    <h2>Panier</h2>
+    <ul id="liste-panier"></ul>
+    <p id="total-panier">Total : 0 Fcfa</p>
+    <button id="btn-vider-panier" onclick="viderPanier()">Vider le panier</button>
+  </div>
+
+  <script >
+    var panier = [];
+
+function ajouterAuPanier(nomProduit, prixProduit) {
+  panier.push({ nom: nomProduit, prix: prixProduit });
+  afficherPanier();
+}
+
+function afficherPanier() {
+  var listePanier = document.getElementById("liste-panier");
+  var totalPanier = document.getElementById("total-panier");
+  listePanier.innerHTML = "";
+  var total = 0;
+
+  panier.forEach(function(produit) {
+    var li = document.createElement("li");
+    li.textContent = produit.nom + " - " + produit.prix + " Fcfa";
+    listePanier.appendChild(li);
+    total += produit.prix;
+  });
+
+  totalPanier.textContent = "Total : " + total + " Fcfa";
+}
+
+function viderPanier() {
+  panier = [];
+  afficherPanier();
+}
+  </script>
+</body>
+</html>

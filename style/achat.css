@@ -1,49 +1,50 @@
-<style>
-        body {
-            font-family: Arial, sans-serif;
-        }
 
-        h1 {
-            text-align: center;
-        }
+body{
+   
+    
+   
+}
+form{   
+    
+   
+    width: 50%;   
+    padding: 25px 30px ;
+    background: #fff;
+    border-radius: 4px;
+   box-shadow: 20px 20px 40px -6px;
+   height: 400px;
+   margin-left: 15rem;
+   border-left: 1px solid rgba(255, 255, 255, .3);
+   border-top: 1px solid rgba(255, 255, 255, .3);
+    
+}
+h1{
+    margin-bottom: 10rem;
+    
+    margin-left: 15rem;
+ padding-top: 4rem;
+ size: 20rem;
+}
+.input-box input{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+ 
+.input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 4px;
+    border:  1px solid rgb(0, 195, 255) ;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.prod select option {
+    width: 200%;
+    border:  1px solid rgb(0, 195, 255) ;
+}
 
-        form {
-            margin: 20px auto;
-            width: 300px;
-        }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 5px;
-        }
-
-        #produits {
-            margin-top: 20px;
-        }
-
-        #produits input[type="text"],
-        #produits input[type="number"] {
-            margin-bottom: 10px;
-        }
-
-        #calculer {
-            display: block;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 16px;
-        }
-
-        #montant-final {
-            font-weight: bold;
-            font-size: 20px;
-            text-align: center;
-            margin-top: 20px;
-        }
-    </style>

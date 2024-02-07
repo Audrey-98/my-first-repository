@@ -34,12 +34,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>boutom</td>
+        
             <td><button onclick="afficherConfirmation(1)"><i class="fas fa-trash-alt"></i><span class="icon-separator">|</span><i class="fas fa-pencil-alt"></i></button>
         
 
@@ -69,15 +64,7 @@
     
   </script>
 
-          </td>
-          </tr>
-          <tr >
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td></li></td>
-            <td>@fat</td>
-          </tr>
-                </tbody>
+          
       </table>
       
  

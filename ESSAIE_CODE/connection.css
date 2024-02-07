@@ -1,10 +1,7 @@
-.{
-    margin: 0;
-    padding: 0;
-    outline: none;
-}
+
+
 body{
-    background: linear-gradient(45deg, #fc466b, #3f5efb);
+    background: linear-gradient(45deg,  #fcbc0c, #083d25);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -48,7 +45,7 @@ a{
  input{
     border-left:1px solid rgba(255, 255, 255, .3);
     border-top: 1px solid rgba(255, 255, 255, .3);
-    border: none;
+    border-radius: 10px;
     padding: 20px;
     margin-bottom: 32px;
     width: 250px;

@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.product {
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.invoice {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.invoice h2 {
+  margin-top: 0;
+}

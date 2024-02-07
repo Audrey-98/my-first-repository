@@ -1,0 +1,48 @@
+body{
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+ 
+}
+
+
+#sales {
+    margin: 20px auto;
+    width: 80%;
+}
+
+#sales-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#ventes-table {
+    margin-top: 20px;
+}
+
+#table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#table th, #ventes td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#table th {
+    background-color: #f2f2f2;
+}
+
+#ventes tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#ventes tbody tr:hover {
+    background-color: #ddd;
+}

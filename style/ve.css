@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130vh;
+ 
+}
+
+#sale {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(27, 27, 27, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input {
+    height: 45px;
+    width:100%;
+    outline: none;
+    border-radius: 4px;
+    border:  1px solid rgb(0, 195, 255) ;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+#sale-total {
+    margin-top: 20px;
+    font-weight: bold;
+}

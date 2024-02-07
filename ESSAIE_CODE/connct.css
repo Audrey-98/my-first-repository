@@ -1,0 +1,30 @@
+
+body{
+    background: linear-gradient(45deg, #fcbc0c, #083d25);
+    height: 100vh;
+    display: flex;
+    padding-top: 10rem;
+    padding-left: 5rem;
+}
+form{   
+    font-family: Arial, sans-serif;
+    
+    background:rgba(255, 255, 255, .3) ;
+    
+    border-radius: 20px;
+    padding-top: 5rem;
+    height: 400px;
+    width: 350px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    box-shadow: 20px 20px 50px  rgba(0, 0, 0, .2) ;
+   text-align: center;
+    
+}
+h1{
+    margin-bottom: 10rem;
+    margin-left: 10rem;
+ padding-top: 4rem;
+ size: 20rem;
+}
+ 
