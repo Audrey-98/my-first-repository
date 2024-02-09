@@ -1,4 +1,43 @@
 <!DOCTYPE html>
+<?php
+require '../CONFIGURATION/config.php';
+session_start();
+
+if (isset($_POST['submit'])){
+    $id_vent = $_POST['id_vent'];
+    $Client = $_POST['client'];
+    $Produit = $_POST['produit'];
+    $Qantite = $_POST['qte'];
+    $Prix = $_POST['prix_unitaire'];
+
+    $sql = "INSERT INTO vente ( id_vent, client, produit, qte, prix_unitaire) VALUES( '$id_vent,'$Client', '$Produit', '$Qantite', '$Prix')";
+
+    $stmt = $conn->prepare($sql);
+
+    // Vérifier si la préparation a réussi
+    if ($stmt) {
+        // Exécution de la requête
+        if ($stmt->execute()) {
+            echo '<div class="alert alert-success text-center" role="alert">
+                Produit  ajouté avec success. 
+            </div>';
+        } else {
+            echo '<div class="alert alert-danger text-center" role="alert">
+                Erreur! Impossible d\'ajouter un Produit: ' . $stmt->error . '
+            </div>';
+        }
+
+        // Fermeture du statement
+        $stmt->close();
+    } else {
+        // En cas d'échec de la préparation
+        echo '<div class="alert alert-danger text-center" role="alert">
+            Erreur lors de la préparation de la requête: ' . $conn->error . '
+        </div>';
+    }
+}
+
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,19 +84,7 @@
 
 
     <script src="script.js">
-        document.addEventListener("DOMContentLoaded", function() {
-    var submitButton = document.querySelector("#saleForm button[type='submit']");
-
-    submitButton.addEventListener("click", function(event) {
-        event.preventDefault(); // Empêcher le formulaire de se soumettre normalement
-
-        // Effectuer une action lorsque le bouton est cliqué
-        alert("Bouton Valider Vente cliqué!");
-
-        // Vous pouvez également rediriger l'utilisateur vers une autre page
-        // window.location.href = "etatVente.php";
-    });
-});
+       
 
 </script>
 </body>

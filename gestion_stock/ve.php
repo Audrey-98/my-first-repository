@@ -1,15 +1,17 @@
 <?php
-require '../CONFIGURATION/config.php';
-session_start();
+require '../CONFIGURATION/configVente.php';
 
-if (isset($_POST['submit'])){
-    $id_vent = $_POST['id_vent'];
+// Vérifie si le formulaire a été soumis
+if (isset($_POST['submit'])) {
+    // Récupère les valeurs des champs du formulaire
     $Client = $_POST['client'];
     $Produit = $_POST['produit'];
     $Qantite = $_POST['qte'];
     $Prix = $_POST['prix_unitaire'];
 
-    $sql = "INSERT INTO vente ( id_vent, client, produit, qte, prix_unitaire) VALUES( '$id_vent,'$Client', '$Produit', '$Qantite', '$Prix')";
+    // Requête SQL pour insérer les données dans la base de données
+    $sql = "INSERT INTO vente ( id_clt id_pro, qte, prix_unitaire, total) 
+    VALUES( '$Client', '$Produit', '$Qte', '$Prix')";
 
     $stmt = $conn->prepare($sql);
 
@@ -18,12 +20,12 @@ if (isset($_POST['submit'])){
         // Exécution de la requête
         if ($stmt->execute()) {
             echo '<div class="alert alert-success text-center" role="alert">
-                Produit  ajouté avec success. 
-            </div>';
+            Produit  ajouté avec success.
+        </div>';
         } else {
             echo '<div class="alert alert-danger text-center" role="alert">
-                Erreur! Impossible d\'ajouter un Produit: ' . $stmt->error . '
-            </div>';
+            Erreur! Impossible d\'ajouter produit: ' . $stmt->error . '
+        </div>';
         }
 
         // Fermeture du statement
@@ -31,13 +33,11 @@ if (isset($_POST['submit'])){
     } else {
         // En cas d'échec de la préparation
         echo '<div class="alert alert-danger text-center" role="alert">
-            Erreur lors de la préparation de la requête: ' . $conn->error . '
-        </div>';
+        Erreur lors de la préparation de la requête: ' . $conn->error . '
+    </div>';
     }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])){
     <link rel="stylesheet" href="../STYLE/ve.css">
 </head>
 <body>
-<?php include_once ("../dossier_inclusion/header.php");?>
+
 
     <div id="sale">
         <div id="sale-header">
@@ -59,22 +59,22 @@ if (isset($_POST['submit'])){
         <form method="post">
 
         <div id="sale-details">
-        <label for="id-vent">id :</label>
-            <input type="text" id="id_vent" name="id_vent" required>
+       
            
             <label for="client">Client :</label>
             <input type="text" id="client" name="client" required>
+          
            
 
             <label for="product">Produit :</label>
             <input type="text" id="produit"  name="produit"required>
+          
+            <label for="quantite">Quantité :</label>
+            <input type="number" id="quantite"  name="quantite" required>
+
+            <label for="prix">prix:</label>
+            <input type="number" id="prix"  name="prix" required>
             
-
-            <label for="quantity">Quantité :</label>
-            <input type="text" id="quantity"  name="qte" required>
-            <label for="quantity">prix:</label>
-            <input type="text" id="quantity"  name="prix_unitaire" required>
-
            <button type="submit" name="submit"     onclick="return confirm('voulez vous ajouter ce produit ?')">Ajouter Produit</button> 
         </div>
         </form>
@@ -85,8 +85,8 @@ if (isset($_POST['submit'])){
 </div>
     </div>
 
-    <script src="script.js">
-        
+    <script src="../JS/vente.js">
+       
     </script>
 </body>
 </html>
