@@ -1,6 +1,6 @@
 <?php
 require '../CONFIGURATION/config.php';
-session_start();
+
 // Vérifie si le formulaire a été soumis
 if (isset($_POST['validate'])) {
     // Récupère les valeurs des champs du formulaire
@@ -19,9 +19,10 @@ if (isset($_POST['validate'])) {
     if ($stmt) {
         // Exécution de la requête
         if ($stmt->execute()) {
-            echo '<div class="alert alert-success text-center" role="alert">
-           utilisateur ajouter avec succes 
-        </div>';
+           /* echo '<div class="alert alert-success text-center" role="alert">
+          utilisateur ajouter avec succes
+        </div>';*/ 
+        header('location:listeUser.php');
         } else {
             echo '<div class="alert alert-danger text-center" role="alert">
             Erreur! Impossible d\'ajouter un utilisateur: ' . $stmt->error . '
@@ -46,42 +47,43 @@ if (isset($_POST['validate'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="../STYLE/inscription.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="inscription">
-        <h1>inscrivez-vous...</h1>
+        <h1>creer votre compte...</h1>
         <h4>Inscrivez-vous ces partie... </h4>
         <!--debut du formulaire d'inscription-->
-        <form method="post">
+        <form method="post" autocomplete="off">
             <div class="papa">
-            <input type="text" name="nom" placeholder="" required>
+            <input type="text" name="nom" placeholder="" autocomplete="off" required>
             <span></span>
             <label for="nom">Nom</label>
             </div>
             
             <div class="papa">
-            <input type="text" name="prenom" placeholder="" required>
+            <input type="text" name="prenom" placeholder="" autocomplete="off" required>
             <span></span>
             <label for="prenom" >prenom</label>
             </div>
 
             <div class="papa">
-            <input type="text" name="pseudo" placeholder="" required>
+            <input type="text" name="pseudo" placeholder="" autocomplete="off" required>
             <span></span>
             <label for="pseudo" >pseudo</label>
             </div>
 
             <div class="papa">
-            <input type="password" name="motDePasse" placeholder="" required>
+            <input type="password" name="motDePasse" placeholder="" autocomplete="off" required>
             <span></span>
             <label for="motDePasse" >mot de passe</label>
             </div>
 
             <div class="papa">
-            <input type="password" name="confirmationMP" placeholder="" required>
+            <input type="password" name="confirmationMP" placeholder="" autocomplete="off" required>
             <span></span>
             <label for="confirmationMP" >confirmerz le</label>
             </div>
@@ -92,6 +94,7 @@ if (isset($_POST['validate'])) {
         </p>
         <p class="papi"> avez vous deja un compte?<a href="formConnexion.php"> cliquez ici </a> </p>
     </div>
+   
 </body>
 
 </html>

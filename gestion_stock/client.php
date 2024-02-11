@@ -14,9 +14,10 @@ $stmt = $conn->prepare($sql);
 if ($stmt) {
     // Exécution de la requête
     if ($stmt->execute()) {
-        echo '<div class="alert alert-success text-center" role="alert">
-       client ajouter avec sucess 
-    </div>';
+        header('location:listeCLT.php');
+        //echo '<div class="alert alert-success text-center" role="alert">
+       //client ajouter avec sucess 
+    //</div>';
     } else {
         echo '<div class="alert alert-danger text-center" role="alert">
         Erreur! Impossible d\'ajouter un client: ' . $stmt->error . '

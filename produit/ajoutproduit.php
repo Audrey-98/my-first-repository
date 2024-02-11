@@ -74,12 +74,12 @@ if ($stmt) {
                 </div>
                 <div class="input-box">
                     <span class="details" >stock initial</span>
-                    <input type="number" name="sotckin"   required>
+                    <input type="text" name="sotckin"   required>
                 </div>
 
                 <div class="input-box">
                     <span class="details" >stock alert</span>
-                    <input type="number" name="sotckal"   required>
+                    <input type="text" name="sotckal"   required>
                 </div>
 
                 <div class="input-box">

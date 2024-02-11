@@ -1,17 +1,19 @@
 <?php
 require '../CONFIGURATION/configVente.php';
+//commencer une nouvelle session
+session_start();
 
 // Vérifie si le formulaire a été soumis
 if (isset($_POST['submit'])) {
     // Récupère les valeurs des champs du formulaire
-    $Client = $_POST['client'];
+    $client = $_POST['client'];
     $Produit = $_POST['produit'];
-    $Qantite = $_POST['qte'];
-    $Prix = $_POST['prix_unitaire'];
+    $qte = $_POST['qte'];
+    $Prix = $_POST['prix'];
 
     // Requête SQL pour insérer les données dans la base de données
-    $sql = "INSERT INTO vente ( id_clt id_pro, qte, prix_unitaire, total) 
-    VALUES( '$Client', '$Produit', '$Qte', '$Prix')";
+    $sql = "INSERT INTO vente ( id_client id_produit, quantite, prix_unitaire, total) 
+    VALUES( '$client', '$Produit', '$qte', '$Prix')";
 
     $stmt = $conn->prepare($sql);
 
@@ -56,6 +58,7 @@ if (isset($_POST['submit'])) {
         <div id="sale-header">
             <h1>effectuer une vente</h1>
         </div>
+        <!--formulaire de vente  -->
         <form method="post">
 
         <div id="sale-details">
@@ -70,7 +73,7 @@ if (isset($_POST['submit'])) {
             <input type="text" id="produit"  name="produit"required>
           
             <label for="quantite">Quantité :</label>
-            <input type="number" id="quantite"  name="quantite" required>
+            <input type="number" id="quantite"  name="qte" required>
 
             <label for="prix">prix:</label>
             <input type="number" id="prix"  name="prix" required>

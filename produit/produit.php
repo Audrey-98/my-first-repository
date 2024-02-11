@@ -35,7 +35,7 @@
         </thead>
         <tbody>
         
-            <td><button onclick="afficherConfirmation(1)"><i class="fas fa-trash-alt"></i><span class="icon-separator">|</span><i class="fas fa-pencil-alt"></i></button>
+            <td>
         
 
   

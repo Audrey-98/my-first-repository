@@ -12,7 +12,10 @@ require '../CONFIGURATION/config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" type="text/css" href="../STYLE/liste.css"/>
     <link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../fontawesome-free-6.4.2-web/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <title>Enregistrement des Ventes</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -21,40 +24,47 @@ require '../CONFIGURATION/config.php';
 
 <?php include_once ("../dossier_inclusion/header.php");?>
 
-    <div id="sales">
-        <div id="sales-header">
-            <h1>Enregistrement des Ventes</h1>
-        </div>
+<div class="container" >
+        <h1> liste des ventes</h1>
+        <button class="btn btn-primary bg-primary my-5"> ajouter</button>
+        <table class="table  table-bordered">
 
-  
-     <div style="padding-left:100px; padding-right:100px; "class="home-content">
-    <table class=" table table-bordered">
-        <thead style="background-color: rgb (130, 106, 251); color: #fff;">
-
+        <thead>
        <tr>
-       
         <th scope="col">client</th>
         <th scope="col">produit</th>
         <th scope="col">quantite</th>
         <th scope="col">prix unitaire</th>    
         <th scope="col">total</th>
        </tr>
+
+     </thead>
        <?php
-        foreach (get("vente") as $vente):;  
-    ?>
-    <tr>
-        <td>$vente-> id_vent </td>
+    $sql="select * from `vente`";
+    $result= mysqli_query($conn,$sql);
+    if ($result){
+        while($row= mysqli_fetch_assoc($result)){
+            $id=$row['id'];
+            $id_client=$row['id_client'];
+            $id_produit=$row['id_produit'];
+            $quantite=$row['quantite'];
+            $prix_total=$row['prix_total'];
+            echo '<tr>
+            <th scope="row">'.$id.'</th>
+            <td>'.$id_client.'</td>
+            <td>'. $id_produit.'</td>
+            <td>'. $quantite.'</td>
+            <td>'. $prix_total.'</td>
+          </tr>';
+
+        }
         
-        <td>$vente -> client</td>
-        <td>$vente -> produit</td>
-        <td>$vente -> qte</td>
-        <td>$vente -> prix_unitaire</td>
-        <td>$vente -> total</td>
-       
-    </tr>
-<?php endforeach?>
+
+    }
+    ?>
+   
     <script src="script.js"></script>
     </table>
-    </div>
+    
 </body>
 </html>
