@@ -16,6 +16,7 @@ require '../CONFIGURATION/config.php';
     <title>liste des client</title>
 </head>
 <body>
+<?php include_once ("../dossier_inclusion/header.php");?>
     <div class="container" >
         <h1> liste des Clients</h1>
         <button class="btn btn-primary bg-primary my-5"><a href="client.php"> ajouter</a></button>
@@ -36,17 +37,17 @@ require '../CONFIGURATION/config.php';
     $result= mysqli_query($conn,$sql);
     if ($result){
         while($row= mysqli_fetch_assoc($result)){
-            $id=$row['id'];
+            $id_clt=$row['id_clt'];
             $nom=$row['nom'];
             $telephone=$row['telephone'];
             
             echo '<tr>
-            <th scope="row">'.$id.'</th>
+            <th scope="row">'.$id_clt.'</th>
             <td>'.$nom.'</td>
             <td>'.$telephone.'</td>
             <td>
-            <button class="btn btn-primary"><a href="modifier.php? modifierid='.$id.'" class="text-light">modifier</a></button>
-            <button  class="btn btn-danger" ><a href="supprimerclt.php? supprimerid='.$id.' " class="text-light">supprimer</a></button>
+            <button class="btn btn-primary"><a href="modifier.php? modifierid='.$id_clt.'" class="text-light">modifier</a></button>
+            <button  class="btn btn-danger" ><a href="supprimerclt.php? supprimerid='.$id_clt.' " class="text-light">supprimer</a></button>
         </td>
            
           </tr>';

@@ -58,11 +58,11 @@
                              <a href="../inventaire/inventaire.php" class="nav_link"> <i class="fa fa-archive me-3 text-info"></i> <span class="nav_name">Inventaire</span> </a>
                              </span> </a> 
                             <a  href="../gestion_stock/facture.php" class="nav_link"> 
-                            <i class='fa fa-shopping-basket me-3 text-info'></i> <span class="nav_name">Facture
+                            <i class='fas fa-file-invoice me-3 text-info'></i> <span class="nav_name">Facture
                               
                             </span> </a> 
                             </span> </a> 
-                            <a  href="#" class="nav_link"> 
+                            <a  href="../GESTION_STOCK/listeCLT.php" class="nav_link"> 
                             <i class='fa fa-shopping-basket me-3 text-info'></i> <span class="nav_name">Client
                               
                             </span> </a> 

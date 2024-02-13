@@ -1,4 +1,5 @@
 <?php
+require '../CONFIGURATION/config.php';
 ?>
 
 <!DOCTYPE html>
@@ -25,43 +26,60 @@
     <table class="table  table-bordered">
         <thead>
           <tr class="bg-info">
-            <th scope="col">Designation</th>
+          <th scope="col">ID</th>
+            <th scope="col">Reference</th>
             <th scope="col">Categorie</th>
-            <th scope="col">Marque</th>
-            <th scope="col">Quantite</th>
+            <th scope="col">nom produit</th>
+            <th scope="col">stock initial</th>
+            <th scope="col">stock alerte</th>
             <th scope="col">Prix</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
         
+        <?php
+    $sql="select * from `produit`";
+    $result= mysqli_query($conn,$sql);
+    if ($result){
+        while($row= mysqli_fetch_assoc($result)){
+            $id_pro=$row['id_pro'];
+            $Reference=$row['Reference'];
+            $Categorie=$row['Categorie'];
+            $Nom_pro=$row['Nom_pro'];
+            $stockinit=$row['stockinit'];
+            $stkalert=$row['stkalert'];
+            $Prix=$row['Prix'];
+            
+            echo '<tr>
+            <th scope="row">'.$id_pro.'</th>
+            <td>'.$Reference.'</td>
+            <td>'.$Categorie.'</td>
+            <td>'.$Nom_pro.'</td>
+            <td>'.$stockinit.'</td>
+            <td>'.$stkalert.'</td>
+            <td>'.$Prix.'</td>
             <td>
+            <button class="btn btn-primary"><a href="#? modifierid='.$id_pro.'" class="text-light">modifier</a></button>
+            <button  class="btn btn-danger" ><a href="#? supprimerid='.$id_pro.' " class="text-light">supprimer</a></button>
+        </td>
+           
+          </tr>';
+
+        }
         
+
+    }
+
+    ?>
+    
+        </tbody>        
 
   
   <script>
-    function afficherConfirmation(idProduit) {
-      Swal.fire({
-        title: "Confirmation de suppression",
-        text: "Voulez-vous vraiment supprimer le produit avec l'ID " + idProduit + " ?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Annuler",
-        cancelButtonText: "Supprimer"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          supprimerProduit(idProduit);
-        }
-      });
-    }
+   
 
-    function supprimerProduit(idProduit) {
-      // Effectuer la suppression du produit avec l'ID spécifié
-      // Remplacez cette ligne par votre propre logique de suppression
-
-      console.log("Suppression du produit avec l'ID " + idProduit);
-    }
-    
+   
   </script>
 
           

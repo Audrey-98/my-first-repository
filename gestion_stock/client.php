@@ -44,13 +44,14 @@ if ($stmt) {
     <link rel="stylesheet" href="../STYLE/client.css">
 </head>
 <body>
+<?php include_once ("../dossier_inclusion/header.php");?>
     <div class="container">
         <h1>Gestion des clients</h1>
         <form   method="post">
             <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" required>
+            <input type="text" id="nom" name="nom" autocomplete="off" required>
             <label for="telephone">Téléphone :</label>
-            <input type="text" id="telephone" name="telephone" required>
+            <input type="text" id="telephone" name="telephone" autocomplete="off" required>
             <button type="submit" name="ajouter">Ajouter Client</button>
         </form>
     </div>

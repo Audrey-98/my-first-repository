@@ -71,6 +71,34 @@ form .txt_field{
   width: 100%;
 
 }
+/* Style uniforme pour les balises select et option */
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #adadad;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select:focus {
+    border-color: #2691d9;
+}
+
+option {
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #adadad;
+    transition: background-color 0.3s;
+}
+
+option:hover {
+    background-color: #f2f2f2;
+}
+
+
 .pass{
     margin: -5px 0 20px 5px ;
    
@@ -79,6 +107,7 @@ form .txt_field{
 .pass a{
     text-decoration: none;
     color: #2691d9;
+    margin: 10px;
 }
 .pass a:hover{
     text-decoration: underline;

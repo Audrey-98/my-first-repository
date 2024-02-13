@@ -4,16 +4,17 @@ require '../CONFIGURATION/configVente.php';
 session_start();
 
 // Vérifie si le formulaire a été soumis
-if (isset($_POST['submit'])) {
+if (isset($_POST['validate'])) {
     // Récupère les valeurs des champs du formulaire
     $client = $_POST['client'];
     $Produit = $_POST['produit'];
     $qte = $_POST['qte'];
     $Prix = $_POST['prix'];
+    $total= $_post['total'];
 
     // Requête SQL pour insérer les données dans la base de données
-    $sql = "INSERT INTO vente ( id_client id_produit, quantite, prix_unitaire, total) 
-    VALUES( '$client', '$Produit', '$qte', '$Prix')";
+    $sql = "INSERT INTO vente ( id_clt id_pro, quantite, prix_unitaire, total) 
+    VALUES( '$client', '$Produit', '$qte', '$Prix','$total')";
 
     $stmt = $conn->prepare($sql);
 
@@ -40,56 +41,78 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../fontawesome-free-6.4.2-web/css/all.min.css">
-    <title>Vente de Produits</title>
+    <link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../STYLE/ve.css">
+    
+    <title>Vente</title>
+    <style>
+        /* Votre CSS ici */
+    </style>
 </head>
 <body>
 
+    <form method="post" id="saleForm">
+    <h1><b><u>Effectuer une vente</u></b></h1>
 
-    <div id="sale">
-        <div id="sale-header">
-            <h1>effectuer une vente</h1>
-        </div>
-        <!--formulaire de vente  -->
-        <form method="post">
-
-        <div id="sale-details">
-       
-           
-            <label for="client">Client :</label>
-            <input type="text" id="client" name="client" required>
-          
-           
-
+            <label for="Client">Client :</label>
+                <div class="selec_box">
+                 <select name="Client">
+                 <?php foreach ($_GET["client"] as $Client): ?>
+                    <option value="<?= $Client->id_clt ?>"><?= $Client->nom ?></option>
+                <?php endforeach ?>
+                 </select>
+              </div>
+            
             <label for="product">Produit :</label>
-            <input type="text" id="produit"  name="produit"required>
-          
+                <div class="selec_box">
+                  <select name="produit">
+                     <?php foreach ($_GET["produit"] as $produit): ?>
+                        <option value="<?= $produit->id_pro ?>"></option>
+                     <?php endforeach ?>
+                 </select>
+                </div>
+                    
             <label for="quantite">Quantité :</label>
             <input type="number" id="quantite"  name="qte" required>
 
             <label for="prix">prix:</label>
             <input type="number" id="prix"  name="prix" required>
-            
-           <button type="submit" name="submit"     onclick="return confirm('voulez vous ajouter ce produit ?')">Ajouter Produit</button> 
-        </div>
-        </form>
+           
+            <label for="prix">Total:</label>
+            <input type="number" id="total"  name="total" required>
 
-    <div class="text-center">
-        <button class="btn btn-primary" onclick="imprimer()">Imprimer</button>
-    </div>
-</div>
-    </div>
+        <button type="button" id="addProduct" >Ajouter Produit</button>
+        
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    <th>Prix unitaire</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les lignes des produits ajoutés seront insérées ici -->
+            </tbody>
+        </table>
+        
+        <label for="total">Total :</label>
+        <input type="text" id="total" name="total" readonly>
 
-    <script src="../JS/vente.js">
-       
+        <button type="submit" name="validate">Valider Vente</button>
+    </form>
+
+    <script>
+        // Votre JavaScript ici
     </script>
 </body>
 </html>

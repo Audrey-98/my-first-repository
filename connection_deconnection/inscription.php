@@ -7,7 +7,7 @@ if (isset($_POST['validate'])) {
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
     $pseudo = $_POST["pseudo"];
-    $motDePasse = md5($_POST["motDePasse"]);
+    $motDePasse =($_POST["motDePasse"]);
 
     // Requête SQL pour insérer les données dans la base de données
     $sql = "INSERT INTO utilisateur (Nom, prenom, pseudo, mot_de_passe) 
@@ -89,9 +89,7 @@ if (isset($_POST['validate'])) {
             </div>
             <input type="submit" id="submit" name="validate" onclick="return confirm('voulez vous ajouter cette utilisateur ?')" value="s'inscrire">
         </form>
-        <p>en cliquant sur le boutton de connexion vous acceptez 
-            <a href="#"> les termes de nos conditions</a> 
-        </p>
+       
         <p class="papi"> avez vous deja un compte?<a href="formConnexion.php"> cliquez ici </a> </p>
     </div>
    

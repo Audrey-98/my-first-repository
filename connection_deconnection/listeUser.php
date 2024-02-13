@@ -26,6 +26,7 @@ require '../CONFIGURATION/config.php'
       <th scope="col">prenom</th>
       <th scope="col">pseudo</th>
       <th scope="col">mot de passe</th>
+      <th scope="col">type de compte</th>
       <th scope="col">action</th>
       
       
@@ -38,16 +39,18 @@ require '../CONFIGURATION/config.php'
     if ($result){
         while($row= mysqli_fetch_assoc($result)){
             $id=$row['id'];
-            $Nom=$row['Nom'];
+            $Nom=$row['nom'];
             $prenom=$row['prenom'];
             $pseudo=$row['pseudo'];
             $mot_de_passe=$row['mot_de_passe'];
+            $user_type=$row['user_type'];
             echo '<tr>
             <th scope="row">'.$id.'</th>
             <td>'.$Nom.'</td>
             <td>'.$prenom.'</td>
             <td>'.$pseudo.'</td>
             <td>'.$mot_de_passe.'</td>
+            <td>'.$user_type.'</td>
             <td>
             <button class="btn btn-primary"><a href="modifier.php? modifierid='.$id.'" class="text-light">modifier</a></button>
             <button  class="btn btn-danger"><a href="supprimer.php? supprimerid='.$id.'" class="text-light">supprimer</a></button>
