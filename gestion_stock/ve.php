@@ -1,5 +1,5 @@
 <?php
-require '../CONFIGURATION/configVente.php';
+require '../CONFIGURATION/config.php';
 //commencer une nouvelle session
 session_start();
 
@@ -10,11 +10,11 @@ if (isset($_POST['validate'])) {
     $Produit = $_POST['produit'];
     $qte = $_POST['qte'];
     $Prix = $_POST['prix'];
-    $total= $_post['total'];
+    $total= $_POST['total'];
 
     // Requête SQL pour insérer les données dans la base de données
-    $sql = "INSERT INTO vente ( id_clt id_pro, quantite, prix_unitaire, total) 
-    VALUES( '$client', '$Produit', '$qte', '$Prix','$total')";
+    $sql = "INSERT INTO vente ( id_clt, id_pro, quantite, prix_unitaire, total) 
+    VALUES( ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
 
@@ -23,11 +23,11 @@ if (isset($_POST['validate'])) {
         // Exécution de la requête
         if ($stmt->execute()) {
             echo '<div class="alert alert-success text-center" role="alert">
-            Produit  ajouté avec success.
+         vente effectuer avec success.
         </div>';
         } else {
             echo '<div class="alert alert-danger text-center" role="alert">
-            Erreur! Impossible d\'ajouter produit: ' . $stmt->error . '
+            Erreur! Impossible de faire une vente: ' . $stmt->error . '
         </div>';
         }
 
@@ -53,61 +53,106 @@ if (isset($_POST['validate'])) {
     
     <title>Vente</title>
     <style>
-        /* Votre CSS ici */
+      body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 160vh;
+            margin: 0;
+            padding-top: 50px;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            width: 400px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        form input {
+            width: calc(100% - 30px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Couleur bleue */
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #panier {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #panier li {
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
+<?php include_once ("../dossier_inclusion/header.php");?>
 
-    <form method="post" id="saleForm">
-    <h1><b><u>Effectuer une vente</u></b></h1>
-
+    <form method="post" >
+    <h4><b>Effectuer une vente</b></h4>
+<div id="saleForm "> </div>
             <label for="Client">Client :</label>
-                <div class="selec_box">
-                 <select name="Client">
-                 <?php foreach ($_GET["client"] as $Client): ?>
-                    <option value="<?= $Client->id_clt ?>"><?= $Client->nom ?></option>
-                <?php endforeach ?>
-                 </select>
-              </div>
+            <input type="text" id="client"  name="client" required><br>
+             
             
-            <label for="product">Produit :</label>
-                <div class="selec_box">
-                  <select name="produit">
-                     <?php foreach ($_GET["produit"] as $produit): ?>
-                        <option value="<?= $produit->id_pro ?>"></option>
-                     <?php endforeach ?>
-                 </select>
-                </div>
-                    
+            <label for="produit">Produit :</label>              
+            <input type="text" id="produit"  name="produit" required><br>  
+
             <label for="quantite">Quantité :</label>
-            <input type="number" id="quantite"  name="qte" required>
+            <input type="number" id="quantite"  name="qte" required><br>
 
             <label for="prix">prix:</label>
-            <input type="number" id="prix"  name="prix" required>
-           
-            <label for="prix">Total:</label>
-            <input type="number" id="total"  name="total" required>
-
-        <button type="button" id="addProduct" >Ajouter Produit</button>
-        
-        <table id="productTable">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>Produit</th>
-                    <th>Quantité</th>
-                    <th>Prix unitaire</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Les lignes des produits ajoutés seront insérées ici -->
-            </tbody>
-        </table>
-        
+            <input type="number" id="prix"  name="prix" required><br>
+             
         <label for="total">Total :</label>
-        <input type="text" id="total" name="total" readonly>
+        <input type="text" id="total" name="total" required><br>
+        <button type="button"   onclick="ajouterAuPanier()">Ajouter au panier</button>
 
+<h4>Panier</h4>
+<ul id="panier"></ul>
+</div>
+<script>
+   function ajouterAuPanier() {
+    // Récupérer les valeurs des champs du formulaire
+    var produit = document.getElementById("produit").value;
+    var quantite = document.getElementById("quantite").value;
+    var prix = document.getElementById("prix").value;
+
+    // Vérifier si tous les champs sont remplis
+    if (produit && quantite && prix) {
+        // Créer un nouvel élément de liste pour représenter le produit
+        var nouveauProduit = document.createElement("li");
+        
+        // Ajouter le contenu du produit à l'élément de liste
+        nouveauProduit.textContent = "Produit:  " + produit + ", Quantité: " + quantite + ", Prix: " + prix;
+
+        // Ajouter l'élément de liste au panier
+        document.getElementById("panier").appendChild(nouveauProduit);
+    } else {
+        alert("Veuillez remplir tous les champs du formulaire.");
+    }
+}
+
+    </script>
         <button type="submit" name="validate">Valider Vente</button>
     </form>
 

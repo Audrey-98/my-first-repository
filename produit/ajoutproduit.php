@@ -1,20 +1,18 @@
 <?php
 require '../CONFIGURATION/config.php';
 session_start();
+
 if (isset($_POST['validate'])) {
-$reference = $_POST['reference'];
-$categorie = $_POST['categorie'];
-$nom = $_POST['nom'];
-$stockin = $_POST['stockin'];
-$stockal = $_POST['stockal'];
-$prix = $_POST['prix'];
-$stockal = isset($_POST['stockal']) ? $_POST['stockal'] : ''; // Définit $stockal sur la valeur postée ou une chaîne vide si non définie
-$stockin = isset($_POST['stockin']) ? $_POST['stockin'] : ''; // Définit $stockin sur la valeur postée ou une chaîne vide si non définie
+    // Récupération des valeurs du formulaire
+    $reference = $_POST['reference'];
+    $categorie = $_POST['categorie'];
+    $nom = $_POST['nom'];
+    $quantite = $_POST['quantite'];
+    $prix = $_POST['prix'];
 
-
-// Requête SQL pour insérer les données dans la table produits
-$sql = "INSERT INTO produit (Reference, Categorie, Nom_pro, stockinit, stkalert, Prix) 
-VALUES ( '$reference', '$categorie', '$nom', '$stockin', '$stockal', '$prix')";
+    // Requête SQL pour insérer les données dans la table produits
+    $sql = "INSERT INTO produit (Reference, Categorie, Nom_pro, quantite, Prix) 
+            VALUES ('$reference', '$categorie', '$nom', '$quantite', '$prix')";
 
 $stmt = $conn->prepare($sql);
 
@@ -46,52 +44,48 @@ if ($stmt) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./bootstrap-5.1.3-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./fontawesome-free-6.4.2-web/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="../style/ajoutproduit.css"/> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Produit</title>
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../STYLE/ajoutproduit.css"/> 
 </head>
-<body >
-   
-    <div class="container">
-        <div class="title">informations sur le produit</div>
-        <form method="post" >
-            <div class="user-details">
-            <div class="input-box">
+<body>
+<?php include_once ("../dossier_inclusion/header.php");?>
+        <div class="container">
+            <div class="title">Ajouter un produit </div>
+            <form method="post">
+                <div class="user-details">
                 <div class="input-box">
                     <span class="details">Reference</span>
                     <input type="text" name="reference"  required>
                 </div>
-                
+                <div class="input-box">
+                    <span class="details" >quantite en stock</span>
+                    <input type="text" name="quantite"   required >
+                </div>
+               
+
                 <div class="input-box">
                     <span class="details">Categorie</span>
                     <input type="text" name="categorie"  required>
                 </div>
-                <div class="input-box">
-                    <span class="details">nom</span>
-                    <input type="text" name="nom"  required>
-                </div>
-                <div class="input-box">
-                    <span class="details" >stock initial</span>
-                    <input type="text" name="sotckin"   required>
-                </div>
-
-                <div class="input-box">
-                    <span class="details" >stock alert</span>
-                    <input type="text" name="sotckal"   required>
-                </div>
+                
+              
 
                 <div class="input-box">
                     <span class="details">Prix</span>
                     <input type="text" name="prix" required>
                 </div>
-                <div class="buttom">
-                <button  type="submit" name="validate" value="ajouter">  </button>
-            </div>
+                <div class="input-box">
+                    <span class="details">nom</span>
+                    <input type="text" name="nom"  required>
+                </div>
+                
+                <div class="button">
+                <input  type="submit" name="validate" value="ajouter">  </input>
             </div>
 
-        </form>
-    </div>
+        </div>
+    </form>
+    
 </body>
 </html>

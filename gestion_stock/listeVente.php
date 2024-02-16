@@ -27,8 +27,7 @@ require '../CONFIGURATION/config.php';
 <div class="container" >
         <h1> liste des ventes</h1>
         <button class="btn btn-primary bg-primary my-5"> ajouter</button>
-        <table class="table  table-bordered">
-
+        <table class="table table-bordered table-striped">
         <thead>
        <tr>
         <th scope="col">client</th>

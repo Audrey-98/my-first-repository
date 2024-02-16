@@ -1,24 +1,26 @@
 <?php
 require '../CONFIGURATION/config.php';
-$id= $_GET['modifierid'];
+$id = $_GET['modifierid'];
+
 // Vérifie si le formulaire a été soumis
-if (isset($_POST['submit'])) {
+if (isset($_POST['modifier'])) {
     // Récupère les valeurs des champs du formulaire
     $nom = $_POST["nom"];
     $prenom = $_POST["prenom"];
     $pseudo = $_POST["pseudo"];
-    $motDePasse = md5($_POST["motDePasse"]);
+    $motDePasse = ($_POST["motDePasse"]);
 
-    // Requête SQL pour insérer les données dans la base de données
-    $sql = "update `utilisateur` set id=$id, Nom='$nom',prenom='$prenom', pseudo='$peudo', mot_de_passe='$motDePasse' where $id=id";
+    // Requête SQL pour mettre à jour les données dans la base de données
+    $sql = "UPDATE `utilisateur` SET Nom='$nom', prenom='$prenom', pseudo='$pseudo', mot_de_passe='$motDePasse' WHERE id=$id";
 
-    $result= mysqli_query($conn, $sql);
-if ($result){
-   //echo "modification eussi reussi";
-    header('location:listeUser.php');
-}else{
-    die(mysqli_error($conn));
-} 
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        // Redirection vers la page de liste des utilisateurs après la mise à jour
+        header('location:listeUser.php');
+        exit(); // Assurez-vous de sortir du script après la redirection
+    } else {
+        die(mysqli_error($conn)); // En cas d'erreur, affichez l'erreur SQL
+    }
 }
 ?>
 

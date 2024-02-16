@@ -18,20 +18,19 @@ require '../CONFIGURATION/config.php';
     <title>page_produit</title>
 </head>
 <body>
-<?php include_once ("../dossier_inclusion/header.php");?>
+
     <h2 class="text-info"> <U>NOS PRODUITS</U></h2>
 
     <button class="bg-warning  " type="submit"><a href="ajoutproduit.php"><i class="fas fa-plus-circle"></i> Ajouter un prodit</button></a>
 
-    <table class="table  table-bordered">
+    <table class="table table-bordered table-striped">
         <thead>
           <tr class="bg-info">
           <th scope="col">ID</th>
             <th scope="col">Reference</th>
             <th scope="col">Categorie</th>
             <th scope="col">nom produit</th>
-            <th scope="col">stock initial</th>
-            <th scope="col">stock alerte</th>
+            <th scope="col">quantite</th>
             <th scope="col">Prix</th>
             <th scope="col">Action</th>
           </tr>
@@ -44,24 +43,22 @@ require '../CONFIGURATION/config.php';
     if ($result){
         while($row= mysqli_fetch_assoc($result)){
             $id_pro=$row['id_pro'];
-            $Reference=$row['Reference'];
-            $Categorie=$row['Categorie'];
-            $Nom_pro=$row['Nom_pro'];
-            $stockinit=$row['stockinit'];
-            $stkalert=$row['stkalert'];
-            $Prix=$row['Prix'];
+            $reference=$row['reference'];
+            $categorie=$row['categorie'];
+            $nom_pro=$row['nom_pro'];
+            $quantite=$row['quantite'];
+            $prix=$row['prix'];
             
             echo '<tr>
             <th scope="row">'.$id_pro.'</th>
-            <td>'.$Reference.'</td>
-            <td>'.$Categorie.'</td>
-            <td>'.$Nom_pro.'</td>
-            <td>'.$stockinit.'</td>
-            <td>'.$stkalert.'</td>
-            <td>'.$Prix.'</td>
+            <td>'.$reference.'</td>
+            <td>'.$categorie.'</td>
+            <td>'.$nom_pro.'</td>
+            <td>'.$quantite.'</td>           
+            <td>'.$prix.'</td>
             <td>
-            <button class="btn btn-primary"><a href="#? modifierid='.$id_pro.'" class="text-light">modifier</a></button>
-            <button  class="btn btn-danger" ><a href="#? supprimerid='.$id_pro.' " class="text-light">supprimer</a></button>
+            <button class="btn btn-primary"><a href="#? modifierid='.$id_pro.'" class="text-light"><i class="fas fa-edit"></i></a></button>
+            <button  class="btn btn-danger" ><a href="#? supprimerid='.$id_pro.' " class="text-light"><i class="fas fa-trash"></i></a></button>
         </td>
            
           </tr>';

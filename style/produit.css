@@ -1,4 +1,10 @@
-
+body{
+    height: 70%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
 
 button {
     float: right;
@@ -12,8 +18,9 @@ button a {
     color: black;
 }
 h2{
-    text-align: center;
-    padding-top: 1.5rem;
+    height: 70%;
+    
+    padding-top: 0;
    color: green;
 
 }

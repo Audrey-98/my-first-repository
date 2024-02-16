@@ -19,6 +19,7 @@
 <body id="body-pd">
     <header class="header" id="header">
         
+        
         <div class="header_toggle bg-"> <i class='bx bx-menu' id="header-toggle"></i> </div>
         
         <ul class="navbar-nav ml-auto">
@@ -26,14 +27,16 @@
                 <a class="nav-link dropdown-toggle" href="#" id="dashboard-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span><i class="fas fa-user"></i></span>
                 </a>
+                
                 <div class="dropdown-menu" aria-labelledby="dashboard-dropdown">
-                <a class="dropdown-item" href="#"><i class="fas fa-user text-info"></i> Profile</a>
+                <a class="dropdown-item" href="../CONNECTION_DECONNECTION/listeUser.php"><i class="fas fa-user text-info"></i>compte</a>
                <a class="dropdown-item" href="#"><i class="fas fa-cog text-info"></i> Paramètres</a>
                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt text-info"></i> Déconnexion</a>
                     <!-- Ajoutez d'autres liens de sous-fonctions selon vos besoins -->
                 </div>
             </li>
         </ul>
+        
   </nav>
         
     </header>
@@ -44,28 +47,57 @@
               src="logo-yata-experts_blanc.png"
               height="40"
               alt="YATA-EXPERTS "></span>
+
+              
                         <div class="nav_list"> <a href="../page/index.php" class="nav_link active"> <i class='bx bx-grid-alt nav_icon me-3'></i>
                         <span class="nav_name">tableau de bord</span> </a>
                         
+                        
+                            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="../gestion_stock/ve.php" id="dashboard-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span> <i class="fa fa-database me-4 text-info" ></i>Gestion de stock</span>
+                </a>
+                
+                <div class="dropdown-menu" aria-labelledby="dashboard-dropdown">
+                <a class="dropdown-item" href="../gestion_stock/ve.php"><i class="fas fa-archive  me-3 text-info"></i>mouvement du stock</a>
+               <a class="dropdown-item" href="../GESTION_STOCK/ve.php"><i class="fas fa-shopping-cart me-4 text-info"></i> vente</a>
+              
+                    <!-- Ajoutez d'autres liens de sous-fonctions selon vos besoins -->
+                </div>
+            </li>
+                           
+                            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dashboard-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span><i class="fas fa-archive me-4 text-info"></i>Inventaire</span>
+                </a>
+                
+                <div class="dropdown-menu" aria-labelledby="dashboard-dropdown">
+                <a class="dropdown-item" href="../INVENTAIRE/inventaire.php"><i class="fas fa-cog text-info"></i>inventaire</a>
+                <a class="dropdown-item" href="../INVENTAIRE/lencerinventaire.php"><i class="fas fa-archive  me-3 text-info"></i>lancer inventaire</a>
 
-                         <a  href="../produit/produit.php" class="nav_link"> 
+              
+                    <!-- Ajoutez d'autres liens de sous-fonctions selon vos besoins -->
+                </div>
+            </li>
+        </ul>          
+
+
+
+
+        <a  href="../produit/produit.php" class="nav_link"> 
                             <i class='fa fa-shopping-basket me-3 text-info'></i> <span class="nav_name">Catalogue</span>
                               
-                                
-                            <a href="../gestion_stock/ve.php" class="nav_link"> <i class="fa fa-database me-3 text-info" ></i> <span
-                            class="nav_name">Gestion de stock</span> </a>
-
-                             <a href="../inventaire/inventaire.php" class="nav_link"> <i class="fa fa-archive me-3 text-info"></i> <span class="nav_name">Inventaire</span> </a>
-                             </span> </a> 
                             <a  href="../gestion_stock/facture.php" class="nav_link"> 
                             <i class='fas fa-file-invoice me-3 text-info'></i> <span class="nav_name">Facture
                               
                             </span> </a> 
-                            </span> </a> 
+   
+                            
                             <a  href="../GESTION_STOCK/listeCLT.php" class="nav_link"> 
-                            <i class='fa fa-shopping-basket me-3 text-info'></i> <span class="nav_name">Client
+                            <i class='fas fa-user me-3 text-info'></i> <span class="nav_name">Client
                               
                             </span> </a> 
+                            
                             
             </div> <div><a href="../connection_deconnection/fermeture.php" class="nav_link"> <i class='bx bx-log-out me-3 text-info'></i> <span
                     class="nav_name">Deconnexion</span> </a>

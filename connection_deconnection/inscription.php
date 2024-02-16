@@ -54,8 +54,8 @@ if (isset($_POST['validate'])) {
 
 <body>
     <div class="inscription">
-        <h1>creer votre compte...</h1>
-        <h4>Inscrivez-vous ces partie... </h4>
+        <h1>Gestion utilisateur...</h1>
+        <h4>creation d'un utilisateur... </h4>
         <!--debut du formulaire d'inscription-->
         <form method="post" autocomplete="off">
             <div class="papa">
@@ -87,10 +87,10 @@ if (isset($_POST['validate'])) {
             <span></span>
             <label for="confirmationMP" >confirmerz le</label>
             </div>
-            <input type="submit" id="submit" name="validate" onclick="return confirm('voulez vous ajouter cette utilisateur ?')" value="s'inscrire">
+            <input type="submit" id="submit" name="validate" onclick="return confirm('voulez vous ajouter cette utilisateur ?')" value="creer">
         </form>
        
-        <p class="papi"> avez vous deja un compte?<a href="formConnexion.php"> cliquez ici </a> </p>
+        
     </div>
    
 </body>

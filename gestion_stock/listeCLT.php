@@ -19,10 +19,10 @@ require '../CONFIGURATION/config.php';
 <?php include_once ("../dossier_inclusion/header.php");?>
     <div class="container" >
         <h1> liste des Clients</h1>
-        <button class="btn btn-primary bg-primary my-5"><a href="client.php"> ajouter</a></button>
-        <table class="table  table-bordered">
+        <button class="btn btn-primary my-5 text-light"><a href="client.php"> ajouter</a></button>
+        <table class="table table-bordered table-striped">
   <thead>
-    <tr>
+    <tr class="bg-info">
       <th scope="col">id client</th>
       <th scope="col">Nom</th>
       <th scope="col">Telephone</th>
@@ -46,8 +46,8 @@ require '../CONFIGURATION/config.php';
             <td>'.$nom.'</td>
             <td>'.$telephone.'</td>
             <td>
-            <button class="btn btn-primary"><a href="modifier.php? modifierid='.$id_clt.'" class="text-light">modifier</a></button>
-            <button  class="btn btn-danger" ><a href="supprimerclt.php? supprimerid='.$id_clt.' " class="text-light">supprimer</a></button>
+            <button class="btn btn-primary"><a href="modifier.php? modifierid='.$id_clt.'" class="text-light"><i class="fas fa-edit"></i></a></button>
+            <button  class="btn btn-danger" ><a href="supprimerclt.php? supprimerid='.$id_clt.' " class="text-light"><i class="fas fa-trash"></i></a></button>
         </td>
            
           </tr>';
